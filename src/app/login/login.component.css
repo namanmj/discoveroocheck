@@ -1,0 +1,254 @@
+body {
+    font-family: 'Work Sans';
+}
+.logindiv{
+    position: relative;
+    width:450px;
+    height:580px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.header{
+    position: absolute;
+    width:450px;
+    height:20px;
+padding-left: 15px;
+padding-top: 15px;
+
+}
+.middle{
+    position: absolute;
+    width:450px;
+    height:260px;
+left:15px;
+top:50px;
+
+margin-bottom: 3px;
+    margin-top: 14px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #ffbe00;
+}
+.middle1{
+    position: absolute;
+    width:180px;
+    height:100px;
+left:110px;
+top:30px;
+}
+.middle2{
+    position: absolute;
+    width:400px;
+    height:30px;
+left:20px;
+top:200px;
+}
+.middle3{
+    position: absolute;
+    left:35px;
+    top:0px;
+   
+
+}
+.middle4{
+    position: absolute;
+    left:8px;
+    top:2px;
+    height:10px;
+    width: 10px;
+
+}
+.middle5{
+    position: absolute;
+    left:100px;
+    top:-30px;
+    height:10px;
+    width: 300px;
+    
+    
+
+}
+.effect-16{
+    border: 0;
+    padding: 4px 0;
+    background-color: transparent;
+}
+.form-control:focus {
+    
+    
+    border-color: transparent;
+    outline: 0;
+   
+}
+.instruction{
+    position: absolute;
+    font-family: "Work Sans";
+    font-style: initial;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    
+    top:350px;
+    
+    padding-left: 30px;
+    width:400px;
+}
+#error{
+    position:absolute;
+    color: orangered;
+    top:265px;
+    font-size: small;
+    width:300px;
+}
+.square_btn{
+    position: absolute;
+    display: inline-block;
+    padding: 7px 20px;
+	border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    color: rgb(19, 18, 18);
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #FFC107 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #FFC107 100%);
+    transition: .4s;
+    top:300px;
+    width:450px;
+}
+
+.square_btn:hover {
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+}
+
+#abc{
+    padding-top: 20px;
+    padding-bottom: 18px;
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.mid{
+    position: absolute;
+    width:400px;
+    height:220px;
+left:25px;
+top:50px;
+
+margin-bottom: 3px;
+    margin-top: 14px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid #ffbe00;
+
+}
+.mid1{
+    position: absolute;
+    width:200px;
+    height:100px;
+left:130px;
+top:50px;
+}
+.mid2{
+    position: absolute;
+    width:400px;
+    height:100px;
+left:80px;
+top:110px;
+}
+#otp{
+    
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.mid3{
+    
+        position: absolute;
+        left:60px;
+        top:140px;
+        height:10px;
+        width: 340px;
+}
+#abc1{
+    position: absolute;
+    left:0px;
+    padding-top: 20px;
+    padding-bottom: 18px;
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.square_btn1{
+    position: absolute;
+    display: inline-block;
+    padding: 7px 20px;
+	border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    color: rgb(19, 18, 18);
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #FFC107 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #FFC107 100%);
+    transition: .4s;
+    top:330px;
+    width:430px;
+}
+
+.square_btn1:hover {
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+}
+.bottom{
+    position: absolute;
+    top:400px;
+    left:20px;
+    width:420px;
+    height:20px;
+    
+}
+.bottom1{
+    position: absolute;
+    left:10px;
+    width:100px;
+
+}
+.text1{
+    position: absolute;
+    left:0px;
+    padding-top: 20px;
+    padding-bottom: 18px;
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.bottom2{
+    position: absolute;
+    right:80px;
+}
+#error2{
+    position:absolute;
+    color: orangered;
+    top:290px;
+    font-size: small;
+    width:300px;
+}

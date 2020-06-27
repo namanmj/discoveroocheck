@@ -1,0 +1,56 @@
+<div *ngIf="this.xyz" class="datadiv">
+    <div class="header">
+       
+    </div>
+    <div class="header2">
+        <h2 id="text1">Greetings from,</h2>
+        <h2 id="text2">Diskoveroo</h2>
+        <h2 id="text3">Feeds</h2>
+        <div (click)="showtoday()"  class="header3">
+            <h2 id="text4">Today's Bookings</h2>
+            <img src="https://img.icons8.com/ios-filled/2x/calendar.png" id="img1">
+            <h2 id="text5">{{this.c}}</h2>
+        </div>
+        <div (click)="show()" class="header4">
+            <h2 id="text4">Total Bookings</h2>
+            <img src="https://img.icons8.com/material-rounded/48/000000/body.png" id="img1">
+            <h2 id="text5">{{this.arraysize}}</h2>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.showalldata" class="datadiv">
+    <div class="header">
+        <img (click)="back()"id="img2" src="https://img.icons8.com/metro/52/000000/backspace.png"/>
+    </div>
+    <div class="header5">
+        <h2 id="text6">All</h2>
+        <h2 id="text7">Customer List</h2>
+        </div>
+        <div class="infodiv" *ngFor="let info of this.z">
+            <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
+            <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
+            <h2 id="s3">{{info['date']}}</h2>
+            <h2 id="s4">{{info['time']}}</h2>
+        </div>
+</div>
+<div *ngIf="this.showtodaydata" class="datadiv">
+    <div class="header">
+        <img (click)="back()"id="img2" src="https://img.icons8.com/metro/52/000000/backspace.png"/>
+    </div>
+    <div class="header5">
+        <h2 id="text6">All</h2>
+        <h2 id="text7">Customer List</h2>
+        </div>
+        <div class="infodiv1" *ngIf="this.c==0">
+            <h2 id="s1">Empty</h2>
+        </div>
+        <div  *ngFor="let info of this.z">
+            <div class="infodiv" *ngIf="info['date']==this.myDate">
+            <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
+            <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
+            <h2 id="s3">{{info['date']}}</h2>
+            <h2 id="s4">{{info['time']}}</h2>
+        </div>
+
+        </div>
+</div>

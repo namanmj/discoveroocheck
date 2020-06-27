@@ -1,0 +1,65 @@
+<div *ngIf="!this.verify" class="logindiv">
+<div class="header">
+    <img (click)="goto()" src="https://diskoveroo.netlify.app/assets/cross.png" alt="" srcset="">
+</div>
+<div class="middle">
+    <div class="middle1">
+        <img src="https://diskoveroo.netlify.app/assets/dialSvg.svg" alt="" srcset="">
+        <h4 id="abc">Enter mobile number</h4>
+    </div>
+    <div class="middle2">
+        <div class="middle4">
+        <img src='https://diskoveroo.netlify.app/assets/Dialpad.svg' alt="" srcset="">
+    </div>
+        <div class="middle3">
+        <h5 >+91</h5>
+        </div>
+        <img _ngcontent-kog-c137="" src="https://diskoveroo.netlify.app/assets/dropDown.svg" alt="" srcset="" style="padding-left: 70px;">
+    <div class="middle5">
+        <div class="  form-group">
+            <label for="mobilenumber"></label>
+            <input type="number" ngModel name="mobilenumber" #mobilenumber="ngModel"  class="form-control effect-16" id="mobilenumber" aria-describedby="mobileHelp" placeholder="Enter mobile number">
+            
+          </div>
+    </div>
+    </div>
+    <p id="error" *ngIf="this.check">Please enter a valid 10 digit number</p>
+    <p id="error" *ngIf="this.check1">{{this.check1msg}}</p>
+    <button (click)=log(mobilenumber) class="button1 square_btn btn btn-block">Proceed</button>
+  
+ 
+      <p class="instruction">Mobile number is only required to login and authenticate. Your number is securely stored on our servers and never shared with any third party for marketing purposes.</p>
+
+</div>
+</div>
+<div *ngIf="this.verify" class="logindiv">
+    <div class="header">
+        <img (click)="show()" src="https://diskoveroo.netlify.app/assets/cross.png" alt="" srcset="">
+    </div>
+    <div class="mid">
+        <div class="mid1">
+            <img src="https://diskoveroo.netlify.app/assets/otpSvg.svg" alt="" srcset="">
+        </div>
+        <div class="mid2">
+            <h4 id="abc1">ENTER OTP SENT TO +91-{{this.number}}</h4>
+        </div>
+        <div class="mid3">
+            <div class="  form-group">
+                <label for="otp"></label>
+                <input type="number" ngModel name="otp" #otp="ngModel"  class="form-control effect-16" id="otp" aria-describedby="otpHelp" placeholder="">
+                
+              </div>
+        </div>
+    </div>
+    <p id="error2" *ngIf="this.check2">{{this.check2msg}}</p>
+    <button  (click)="verifyy(otp)" class="button1 square_btn1 btn btn-block">PROCEED</button>
+    <div class="bottom">
+        <div class="bottom1">
+<p (click)="change()" class="text1">EDIT NUMBER</p>
+        </div>
+        <div class="bottom2">
+<p (click)="resend()" class="text1">RESEND</p>
+        </div>
+
+    </div>
+</div>

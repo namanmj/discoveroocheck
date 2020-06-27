@@ -1,0 +1,252 @@
+body {
+    font-family: 'Work Sans';
+}
+.datadiv{
+    position: relative;
+    width:450px;
+    height:580px;
+    padding-top: 10px;
+    padding-left: 10px;
+   
+}
+.header{
+    position: absolute;
+    width:450px;
+    height:30px;
+    left: 0px;
+    top:0px;
+}
+.header2{
+    position: absolute;
+    width:450px;
+    height:550px;
+    left: 0px;
+    top:30px;
+  
+    
+}
+#text1{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 16px;
+    text-align: center;
+    
+    top:50px;
+    color: lightslategray;
+    left:20px;
+    width:300px;
+}
+#text2{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 16px;
+    text-align: center;
+    
+    top:90px;
+    color: black;
+    padding-left: 50px;
+    width:40px;
+}
+#text3{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+    
+    top:180px;
+    color:black;
+    padding-left: 30px;
+    width:40px;
+}
+.header3{
+    position: absolute;
+    width:380px;
+    height:80px;
+    left: 30px;
+    top:220px;
+    background-color:#ffbe00;
+    border-radius: 12px;
+}
+.header4{
+    position: absolute;
+    width:380px;
+    height:80px;
+    left: 30px;
+    top:320px;
+    background-color:#ffbe00;
+    border-radius: 12px;
+}
+#text4{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 16px;
+    text-align: center;
+    
+    top:20px;
+    color:black;
+    left: 50px;
+    width:350px;
+}
+#text5{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 16px;
+    text-align: center;
+    
+    top:45px;
+    color:black;
+    left: 0px;
+    width:350px;
+}
+#img1{
+    
+        position: absolute;
+        
+        
+        top:15px;
+        
+        left: 40px;
+        width:50px;
+        height: 50px;
+   
+}
+.header5{
+    position: absolute;
+    width:450px;
+    height:100px;
+    left: 0px;
+    top:40px;
+  
+    
+}
+#text6{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 16px;
+    text-align: center;
+    
+    top:10px;
+    color: lightslategray;
+    
+    width:40px;
+    left:90px;
+}
+#text7{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 16px;
+    text-align: center;
+    left:70px;
+    top:60px;
+    color: black;
+    
+    width:300px;
+}
+.infodiv{
+    position: relative;
+    left:10px;
+    top:140px;
+    width:400px;
+    height:100px;
+    border: gray thin solid;
+    border-color: gray;
+  border-radius: 25px;
+  margin-bottom: 10px;
+    
+}
+.infodiv1{
+    position: relative;
+    left:10px;
+    top:140px;
+    width:400px;
+    height:40px;
+    border: gray thin solid;
+    border-color: gray;
+  border-radius: 25px;
+  margin-bottom: 10px;
+    
+}
+#img2{
+    position: absolute;
+    left:20px;
+    top:10px;
+    width: 25px;
+    height: 25px;
+}
+#s1{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 16px;
+    text-align: center;
+    top:10px;
+    left:30px;
+    color: black;
+    
+    width:250px;
+}
+#s2{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    top:50px;
+    left:30px;
+    color: black;
+   
+    width:100px;
+}
+#s3{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    top:70px;
+    left:30px;
+    color:gray;
+   
+    width:100px;
+}
+#s4{
+    position: absolute;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    top:70px;
+    left:250px;
+    color: gray;
+   
+    width:100px;
+}
