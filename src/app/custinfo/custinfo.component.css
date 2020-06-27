@@ -187,6 +187,44 @@ body {
   margin-bottom: 10px;
     
 }
+#img3{
+    position: absolute;
+    
+    width: 50px;
+    height: 50px;
+    
+}
+#img4{
+    position: absolute;
+    top:10px;
+    left:10px;
+    width: 30px;
+    height: 30px;
+    
+}
+#img5{
+    position: absolute;
+    left:380px;
+    top:10px;
+}
+.img3div{
+    position: absolute;
+    background-color:#ffbe00 ;
+    width:50px;
+    height: 50px;;
+    top:50px;
+    left:100px;
+    border-radius: 10px;
+}
+.img4div{
+    position: absolute;
+    background-color:#ffbe00 ;
+    width:50px;
+    height: 50px;;
+    top:450px;
+    left:100px;
+    border-radius: 10px;
+}
 #img2{
     position: absolute;
     left:20px;
@@ -250,3 +288,41 @@ body {
    
     width:100px;
 }
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 800px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  
+  
+  #main {
+    transition: margin-Right .5s;
+    padding: 16px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
