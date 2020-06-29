@@ -206,6 +206,8 @@ body {
     position: absolute;
     left:380px;
     top:10px;
+    width:30px;
+    height: 20px;
 }
 .img3div{
     position: absolute;
@@ -213,7 +215,7 @@ body {
     width:50px;
     height: 50px;;
     top:50px;
-    left:100px;
+    left:30px;
     border-radius: 10px;
 }
 .img4div{
@@ -222,7 +224,7 @@ body {
     width:50px;
     height: 50px;;
     top:450px;
-    left:100px;
+    left:30px;
     border-radius: 10px;
 }
 #img2{
@@ -294,7 +296,7 @@ body {
     position: absolute;
     z-index: 1;
     top: 0;
-    right: 800px;
+    right:830px;
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
@@ -325,4 +327,20 @@ body {
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+  }
+  .loader {
+      position: relative;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #ffbe00; 
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    top:250px;
+    left:180px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }

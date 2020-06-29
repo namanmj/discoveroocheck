@@ -1,7 +1,8 @@
-<div *ngIf="this.xyz" class="datadiv" id="datadiv2">
+<div *ngIf="this.loader1" class="loader"></div>
+<div *ngIf="!this.loader1 && this.xyz" class="datadiv" id="datadiv2">
     <div class="header">
       
-       <img (click)="openNav()" id="img5" src="https://img.icons8.com/material-outlined/24/000000/sidebar-menu.png"/>
+       <img (click)="openNav()" id="img5" src="../../assets/images/drawer_icon.png"/>
     </div>
     <div class="header2">
         <h2 id="text1">Greetings from,</h2>
@@ -9,12 +10,12 @@
         <h2 id="text3">Feeds</h2>
         <div (click)="showtoday()"  class="header3">
             <h2 id="text4">Today's Bookings</h2>
-            <img src="https://img.icons8.com/ios-filled/2x/calendar.png" id="img1">
+            <img id="img1" src="../../assets/images/calender.png" >
             <h2 id="text5">{{this.c}}</h2>
         </div>
         <div (click)="show()" class="header4">
             <h2 id="text4">Total Bookings</h2>
-            <img src="https://img.icons8.com/material-rounded/48/000000/body.png" id="img1">
+            <img src="../../assets/images/user.png" id="img1">
             <h2 id="text5">{{this.arraysize}}</h2>
         </div>
     </div>
@@ -22,7 +23,7 @@
 <div *ngIf="this.showalldata" class="datadiv">
     <div class="header">
         <img (click)="back()"id="img2" src="https://img.icons8.com/metro/52/000000/backspace.png"/>
-        <img (click)="openNav()" id="img5" src="https://img.icons8.com/material-outlined/24/000000/sidebar-menu.png"/>
+        <img (click)="openNav()" id="img5" src="../../assets/images/drawer_icon.png"/>
     </div>
     <div class="header5">
         <h2 id="text6">All</h2>
@@ -62,7 +63,7 @@
  <div (click)="closeNav()" class="img3div">
     <img id="img3"  src="https://img.icons8.com/material-sharp/2x/home.png">
   </div>
-  <div (click)="logout()"class="img4div">
-    <img id="img4" src="https://img.icons8.com/android/48/000000/logout-rounded-left.png"/>
+  <div (click)="logout()" class="img4div">
+    <img id="img4" src="../../assets/images/logout.png"/>
   </div>
   </div>

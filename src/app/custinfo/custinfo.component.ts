@@ -18,6 +18,7 @@ myDate;
 i;
 c=0;
 d;
+loader1=true;
   constructor(private router: Router,private http: HttpClient,private datePipe: DatePipe) { }
 showalldata=false;
   ngOnInit(): void {
@@ -26,6 +27,7 @@ showalldata=false;
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
 console.log(this.myDate);
     this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":"7993614041","otp":"123456"}).subscribe(data1 => {
+      this.loader1=false;
   console.log(data1);
  
  this.arraysize=data1['response']['data'].length;
@@ -35,6 +37,7 @@ console.log(this.myDate);
  console.log(this.name);
 },error=>{
   console.log("error")
+  this.loader1=false;
 })
 for(this.i=0;this.i<this.arraysize;this.i++){
   if(this.z['date']==this.myDate)
@@ -60,9 +63,9 @@ show(){
   this.showalldata=true;
 }
  openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("datadiv1").style.marginRight = "250px";
-  document.getElementById("datadiv2").style.marginRight = "250px";
+  document.getElementById("mySidenav").style.width = "100px";
+  document.getElementById("datadiv1").style.marginRight = "100px";
+  document.getElementById("datadiv2").style.marginRight = "100px";
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 

@@ -1,4 +1,4 @@
-<div *ngIf="!this.verify" class="logindiv">
+<div *ngIf="!this.verify" class="logindiv"> 
 <div class="header">
     <img (click)="goto()" src="https://diskoveroo.netlify.app/assets/cross.png" alt="" srcset="">
 </div>
@@ -25,8 +25,10 @@
     </div>
     <p id="error" *ngIf="this.check">Please enter a valid 10 digit number</p>
     <p id="error" *ngIf="this.check1">{{this.check1msg}}</p>
-    <button (click)=log(mobilenumber) class="button1 square_btn btn btn-block">Proceed</button>
-  
+    <button *ngIf="!this.loader" (click)=log(mobilenumber) class="button1 square_btn btn btn-block">Proceed</button>
+    <button *ngIf="this.loader" class="square_btn">
+        <i class="fa fa-circle-o-notch fa-spin"></i>Loading
+      </button>
  
       <p class="instruction">Mobile number is only required to login and authenticate. Your number is securely stored on our servers and never shared with any third party for marketing purposes.</p>
 
@@ -52,7 +54,10 @@
         </div>
     </div>
     <p id="error2" *ngIf="this.check2">{{this.check2msg}}</p>
-    <button  (click)="verifyy(otp)" class="button1 square_btn1 btn btn-block">PROCEED</button>
+    <button *ngIf="!this.loader1" (click)="verifyy(otp)" class="button1 square_btn1 btn btn-block">PROCEED</button>
+    <button *ngIf="this.loader1" class="square_btn1">
+        <i class="fa fa-circle-o-notch fa-spin"></i>Loading
+      </button>
     <div class="bottom">
         <div class="bottom1">
 <p (click)="change()" class="text1">EDIT NUMBER</p>

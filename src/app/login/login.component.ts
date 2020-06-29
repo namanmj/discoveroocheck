@@ -16,6 +16,8 @@ check1=false;
 check2=false;
 check1msg;
 check2msg;
+loader=false;
+loader1=false;
   constructor(private router: Router,private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ check2msg;
     else{
       this.check=false;
       this.number=String(x.value);
-     
+     this.loader=true;
       this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/get_otp",{"mobile":String(x.value)}).subscribe(data => {
         console.log(data);
         this.verify=!this.verify;
@@ -34,6 +36,7 @@ check2msg;
     },error=>{
       this.check1=true;
       this.check1msg=error.error.msg;
+      this.loader=false;
     })
     
   }}
@@ -45,6 +48,7 @@ check2msg;
 
 verifyy(y){
   this.otp=String(y.value);
+  this.loader1=true;
 this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":this.number,"otp":this.otp}).subscribe(data1 => {
   console.log(data1);
   this.check2=false;
@@ -52,6 +56,7 @@ this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{
 },error=>{
   this.check2=true;
   this.check2msg=error.error.msg;
+  this.loader1=false;
 })
 
 }
