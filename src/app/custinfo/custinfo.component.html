@@ -19,6 +19,15 @@
             <h2 id="text5">{{this.arraysize}}</h2>
         </div>
     </div>
+    <div id="mySidenav" class="sidenav">
+ 
+        <div (click)="closeNav()" class="img3div">
+           <img id="img3"  src="https://img.icons8.com/material-sharp/2x/home.png">
+         </div>
+         <div (click)="logout()" class="img4div">
+           <img id="img4" src="../../assets/images/logout.png"/>
+         </div>
+         </div>
 </div>
 <div *ngIf="this.showalldata" class="datadiv">
     <div class="header">
@@ -35,11 +44,20 @@
             <h2 id="s3">{{info['date']}}</h2>
             <h2 id="s4">{{info['time']}}</h2>
         </div>
+        <div id="mySidenav" class="sidenav">
+ 
+            <div (click)="closeNav()" class="img3div">
+               <img id="img3"  src="https://img.icons8.com/material-sharp/2x/home.png">
+             </div>
+             <div (click)="logout()" class="img4div">
+               <img id="img4" src="../../assets/images/logout.png"/>
+             </div>
+             </div>
 </div>
 <div *ngIf="this.showtodaydata" id="datadiv1" class="datadiv">
     <div class="header">
         <img (click)="back()"id="img2" src="https://img.icons8.com/metro/52/000000/backspace.png"/>
-        <img (click)="openNav()" id="img5" src="https://img.icons8.com/material-outlined/24/000000/sidebar-menu.png"/>
+        <img (click)="openNav()" id="img5" src="../../assets/images/drawer_icon.png"/>
     </div>
     <div class="header5">
         <h2 id="text6">All</h2>
@@ -57,13 +75,14 @@
         </div>
 
         </div>
-</div>
-<div id="mySidenav" class="sidenav">
+        <div id="mySidenav" class="sidenav">
  
- <div (click)="closeNav()" class="img3div">
-    <img id="img3"  src="https://img.icons8.com/material-sharp/2x/home.png">
-  </div>
-  <div (click)="logout()" class="img4div">
-    <img id="img4" src="../../assets/images/logout.png"/>
-  </div>
-  </div>
+            <div (click)="closeNav()" class="img3div">
+               <img id="img3"  src="https://img.icons8.com/material-sharp/2x/home.png">
+             </div>
+             <div (click)="logout()" class="img4div">
+               <img id="img4" src="../../assets/images/logout.png"/>
+             </div>
+             </div>
+             
+</div>

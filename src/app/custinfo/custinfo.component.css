@@ -296,7 +296,7 @@ body {
     position: absolute;
     z-index: 1;
     top: 0;
-    right:830px;
+    right:30px;
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
