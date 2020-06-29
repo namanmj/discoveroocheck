@@ -300,7 +300,7 @@ body {
     position: fixed;
     z-index: 10;
     top: 0;
-    right:810px;
+    right:510px;
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;

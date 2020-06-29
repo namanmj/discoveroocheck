@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  message:string;
   constructor(){
 
   }
+  
 ngOnInit(){
-  console.log('naman');
+ 
 }}

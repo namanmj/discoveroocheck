@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ResolveEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-custinfo',
   templateUrl: './custinfo.component.html',
@@ -9,14 +10,16 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 export class CustinfoComponent implements OnInit {
+ 
 arraysize;
+arraysize1;
 xyz=true;
 z;
 showtodaydata=false;
 name;
 myDate;
 i;
-c=0;
+c:number =0;
 d;
 loader1=true;
   constructor(private router: Router,private http: HttpClient,private datePipe: DatePipe) { }
@@ -31,20 +34,23 @@ console.log(this.myDate);
   console.log(data1);
  
  this.arraysize=data1['response']['data'].length;
+ 
  this.z=data1['response']['data'];
  this.name=data1['response']['data'][0]['user']['name'];
+ for(this.i=0;this.i<(this.arraysize);this.i++){
+  if(this.z[this.i]['date']==this.myDate){
+    this.c=this.c+1
+  }
+
+  
+   }
  
- console.log(this.name);
 },error=>{
   console.log("error")
   this.loader1=false;
 })
-for(this.i=0;this.i<this.arraysize;this.i++){
-  if(this.z['date']==this.myDate)
-  {
-    this.c=this.c+1;
-  }
-   }
+
+
 } 
 showtoday(){
   this.xyz=false;

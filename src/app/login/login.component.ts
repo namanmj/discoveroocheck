@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ResolveEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
   host: {'class': 'login1'}
 })
 export class LoginComponent implements OnInit {
+  
 check=false;
 verify=false;
 number;
@@ -18,8 +20,9 @@ check1msg;
 check2msg;
 loader=false;
 loader1=false;
-  constructor(private router: Router,private http: HttpClient) { }
 
+  constructor(private router: Router,private http: HttpClient) { }
+  
   ngOnInit(): void {
   }
   log(x){
@@ -29,6 +32,7 @@ loader1=false;
       this.check=false;
       this.number=String(x.value);
      this.loader=true;
+     
       this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/get_otp",{"mobile":String(x.value)}).subscribe(data => {
         console.log(data);
         this.verify=!this.verify;
