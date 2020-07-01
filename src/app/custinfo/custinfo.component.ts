@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ResolveEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
-
+import { SharedaService } from '../shareda.service';
 @Component({
   selector: 'app-custinfo',
   templateUrl: './custinfo.component.html',
@@ -10,7 +10,8 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 export class CustinfoComponent implements OnInit {
- 
+otp;
+number;
 arraysize;
 arraysize1;
 xyz=true;
@@ -22,14 +23,15 @@ i;
 c:number =0;
 d;
 loader1=true;
-  constructor(private router: Router,private http: HttpClient,private datePipe: DatePipe) { }
+  constructor(private router: Router,private http: HttpClient,private datePipe: DatePipe,private _sharedService: SharedaService) { }
 showalldata=false;
   ngOnInit(): void {
     this.myDate = new Date();
-
+this.otp=this._sharedService.otp;
+this.number=this._sharedService.number;
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
 console.log(this.myDate);
-    this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":"7993614041","otp":"123456"}).subscribe(data1 => {
+    this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":String(this.number),"otp":String(this.otp)}).subscribe(data1 => {
       this.loader1=false;
   console.log(data1);
  

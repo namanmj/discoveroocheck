@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ResolveEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { SharedaService } from '../shareda.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +21,7 @@ check2msg;
 loader=false;
 loader1=false;
 
-  constructor(private router: Router,private http: HttpClient) { }
+  constructor(private router: Router,private http: HttpClient,private _sharedService: SharedaService) { }
   
   ngOnInit(): void {
   }
@@ -32,7 +32,7 @@ loader1=false;
       this.check=false;
       this.number=String(x.value);
      this.loader=true;
-     
+     this._sharedService.number=this.number;
       this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/get_otp",{"mobile":String(x.value)}).subscribe(data => {
         console.log(data);
         this.verify=!this.verify;
@@ -52,6 +52,7 @@ loader1=false;
 
 verifyy(y){
   this.otp=String(y.value);
+  this._sharedService.otp=this.otp;
   this.loader1=true;
 this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":this.number,"otp":this.otp}).subscribe(data1 => {
   console.log(data1);
