@@ -67,6 +67,7 @@ this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{
 }
     change(){
       this.verify=!this.verify;
+      this.loader=false;
     }
     show(){
       console.log("hello");

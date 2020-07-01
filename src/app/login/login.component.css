@@ -19,7 +19,7 @@ padding-top: 15px;
 }
 .middle{
     position: absolute;
-    width:450px;
+    width:430px;
     height:260px;
 left:15px;
 top:50px;
@@ -38,10 +38,18 @@ top:30px;
 }
 .middle2{
     position: absolute;
-    width:400px;
+    width:350px;
     height:30px;
 left:20px;
 top:200px;
+}
+.mid3{
+    
+    position: absolute;
+    left:60px;
+    top:140px;
+    height:10px;
+    width: 340px;
 }
 .middle3{
     position: absolute;
@@ -64,10 +72,8 @@ top:200px;
     top:-30px;
     height:10px;
     width: 300px;
-    
-    
-
 }
+
 .effect-16{
     border: 0;
     padding: 4px 0;
@@ -119,7 +125,7 @@ input:focus {
     background-image: linear-gradient(45deg, #FFC107 0%, #FFC107 100%);
     transition: .4s;
     top:300px;
-    width:450px;
+    width:430px;
 }
 
 .square_btn:hover {
@@ -177,14 +183,7 @@ top:110px;
     letter-spacing: 1px;
     text-align: center;
 }
-.mid3{
-    
-        position: absolute;
-        left:60px;
-        top:140px;
-        height:10px;
-        width: 340px;
-}
+
 #abc1{
     position: absolute;
     left:0px;

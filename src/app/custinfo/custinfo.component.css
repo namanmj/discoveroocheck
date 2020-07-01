@@ -304,10 +304,10 @@ body {
 .sidenav {
     height: 140%;
     width: 0;
-    position: absolute;
+    position: fixed;
     z-index: 10;
     top: 0;
-    right:0px;
+    right:812px;
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
