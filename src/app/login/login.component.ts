@@ -27,7 +27,8 @@ loader1=false;
   }
   log(x){
     if(String(x.value).length!=10){
-      this.check=true;}
+      this.check=true;
+    this.check1=false;}
     else{
       this.check=false;
       this.number=String(x.value);

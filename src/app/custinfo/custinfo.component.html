@@ -38,13 +38,116 @@
     <div class="header5">
         <h2 id="text6">All</h2>
         <h2 id="text7">Customer List</h2>
+        <div class="datediv">
+<h2 id="datetxt">Choose Date</h2>
+
+
+  
+  <div class="hq col-xs-12 col-12 col-md-4 form-group">
+    <input (change)="datepick(dateofbirth)" type="date"
+           placeholder="Datepicker"
+           id="dob"
+           ngModel name="dateofbirth"
+           #dateofbirth="ngModel"
+           class="hq1 form-control"
+    >
+  </div>
+ 
         </div>
+        </div>
+        <div *ngIf="!this.filter && !(this.e==0)">
         <div class="infodiv" *ngFor="let info of this.z">
             <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
             <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
             <h2 id="s3">{{info['date']}}</h2>
             <h2 id="s4">{{info['time']}}</h2>
+            <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-checked-100.png" id="s5">
+            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
+            <img  (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-topic-100.png" id="s7">
         </div>
+        </div>
+        <div  *ngFor="let info of this.z">
+            <div class="infodiv" *ngIf="info['date']==this.filterDate && this.filter && !(this.e==0)">
+                <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
+                <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
+                <h2 id="s3">{{info['date']}}</h2>
+                <h2 id="s4">{{info['time']}}</h2>
+                <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-checked-100.png" id="s5">
+            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
+            <img (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+            </div>
+        </div>
+        
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modalheader">
+        <h2 id="modalheadertxt">Confirm Booking</h2>
+        </div>
+        <h2 id="p1">Customer Name: {{this.username}}</h2>
+        <h2 id="p1">Number of people: {{this.nop}}</h2>
+        <h2 id="p1">Date: {{this.userdate}}</h2>
+        <h2 id="p1">Time: {{this.usertime}}</h2>
+        <form >
+            
+            <input type="text" id="fname" name="fname" placeholder="write your comments here *(optional)"><br><br>
+            
+          </form>
+          <button  (click)="closeconfirm()" class=" square_btn5 btn ">Cancel</button>
+          <button   class=" square_btn6 btn ">Submit</button>
+  </div>
+
+</div>
+<div id="myModal1" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1">
+      <div class="modalheader">
+          <h2 id="modalheadertxt">Decline Booking</h2>
+          </div>
+          <h2 id="p1">Customer Name: {{this.username}}</h2>
+          <h2 id="p1">Number of people: {{this.nop}}</h2>
+          <h2 id="p1">Date: {{this.userdate}}</h2>
+          <h2 id="p1">Time: {{this.usertime}}</h2>
+    
+  <form >
+    
+    <input type="text" id="fname" name="fname" placeholder="write your comments here *(optional)"><br><br>
+    
+  </form>
+  <button  (click)="closedecline()" class=" square_btn5 btn ">Cancel</button>
+  <button   class=" square_btn6 btn ">Submit</button>
+  </div>
+</div>
+<div id="myModal2" class="modal2">
+
+    <!-- Modal content -->
+    <div class="modal-content2">
+      <div class="modalheader">
+          <h2 id="modalheadertxt">Add Comment</h2>
+          </div>
+          <h2 id="p1">Customer Name: {{this.username}}</h2>
+          <h2 id="p1">Number of people: {{this.nop}}</h2>
+          <h2 id="p1">Date: {{this.userdate}}</h2>
+          <h2 id="p1">Time: {{this.usertime}}</h2>
+    
+  <form >
+    
+    <input type="text" id="fname" name="fname" placeholder="write your comments here "><br><br>
+    
+  </form>
+  <button  (click)="closecomment()" class=" square_btn5 btn ">Cancel</button>
+  <button   class=" square_btn6 btn ">Submit</button>
+  </div>
+</div>
+
+        <div class="infodiv1" *ngIf="this.e==0">
+            <img src="../../assets/images/bookings.png">
+            <h2 id="txt9">There is nothing in here</h2>
+         </div>
         <div id="mySidenav" class="sidenav">
  
             <div (click)="closeNav()" class="img3div">
@@ -65,7 +168,8 @@
         <h2 id="text7">Customer List</h2>
         </div>
         <div class="infodiv1" *ngIf="this.c==0">
-            <h2 id="s1">Empty</h2>
+           <img src="../../assets/images/bookings.png">
+           <h2 id="txt9">There is nothing in here</h2>
         </div>
         <div  *ngFor="let info of this.z">
             <div class="infodiv" *ngIf="info['date']==this.myDate">
@@ -73,9 +177,75 @@
             <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
             <h2 id="s3">{{info['date']}}</h2>
             <h2 id="s4">{{info['time']}}</h2>
+            <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-checked-100.png" id="s5">
+            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
+            <img (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-topic-100.png" id="s7">
         </div>
 
         </div>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modalheader">
+                  <h2 id="modalheadertxt">Confirm Booking</h2>
+                  </div>
+                  <h2 id="p1">Customer Name: {{this.username}}</h2>
+                  <h2 id="p1">Number of people: {{this.nop}}</h2>
+                  <h2 id="p1">Date: {{this.userdate}}</h2>
+                  <h2 id="p1">Time: {{this.usertime}}</h2>
+            
+          <form >
+            
+            <input type="text" id="fname" name="fname" placeholder="write your comments here *(optional)"><br><br>
+            
+          </form>
+          <button  (click)="closeconfirm()" class=" square_btn5 btn ">Cancel</button>
+          <button   class=" square_btn6 btn ">Submit</button>
+          </div>
+        </div>
+          <div id="myModal1" class="modal1">
+
+            <!-- Modal content -->
+            <div class="modal-content1">
+              <div class="modalheader">
+                  <h2 id="modalheadertxt">Decline Booking</h2>
+                  </div>
+                  <h2 id="p1">Customer Name: {{this.username}}</h2>
+                  <h2 id="p1">Number of people: {{this.nop}}</h2>
+                  <h2 id="p1">Date: {{this.userdate}}</h2>
+                  <h2 id="p1">Time: {{this.usertime}}</h2>
+            
+          <form >
+            
+            <input type="text" id="fname" name="fname" placeholder="write your comments here *(optional)"><br><br>
+            
+          </form>
+          <button  (click)="closedecline()" class=" square_btn5 btn ">Cancel</button>
+          <button   class=" square_btn6 btn ">Submit</button>
+          </div>
+</div>
+<div id="myModal2" class="modal2">
+
+    <!-- Modal content -->
+    <div class="modal-content2">
+      <div class="modalheader">
+          <h2 id="modalheadertxt">Add Comment</h2>
+          </div>
+          <h2 id="p1">Customer Name: {{this.username}}</h2>
+          <h2 id="p1">Number of people: {{this.nop}}</h2>
+          <h2 id="p1">Date: {{this.userdate}}</h2>
+          <h2 id="p1">Time: {{this.usertime}}</h2>
+    
+  <form >
+    
+    <input type="text" id="fname" name="fname" placeholder="write your comments here "><br><br>
+    
+  </form>
+  <button  (click)="closecomment()" class=" square_btn5 btn ">Cancel</button>
+  <button   class=" square_btn6 btn ">Submit</button>
+  </div>
+</div>
         <div id="mySidenav" class="sidenav">
  
             <div (click)="closeNav()" class="img3div">
@@ -85,6 +255,7 @@
                <img id="img4" src="../../assets/images/logout.png"/>
              </div>
              </div>
+             
              
 </div>
 </div>
