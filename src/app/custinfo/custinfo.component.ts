@@ -246,7 +246,9 @@ this.p1=document.getElementById("myModal2")
 this.p1.style.display="none";
 
   this.http.patch("http://api.diskoveroo.simplifii.xyz/api/v1/booking/comment",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb)}).subscribe(data3 => {
+  console.log(data3['msg']);
   this.alertmsg=data3['msg'];  
+  
   this.ele.style.display="block";
   setTimeout(this.alertfunc, 2000);
     
