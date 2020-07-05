@@ -14,11 +14,13 @@ import { SharedaService } from '../shareda.service';
 })
 export class CustinfoComponent implements OnInit {
   filterDate;
+  ele;
 filter=false;
 otp;
 otpcpy;
 p;
 p1;
+alertmsg;
 confirm=false;
 decline=false;
 comment=false;
@@ -28,6 +30,7 @@ arraysize;
 arraysize1;
 xyz=true;
 z;
+id;
 showtodaydata=false;
 name;
 myDate;
@@ -120,10 +123,11 @@ else{
   this.filter=true;
   this.filterDate=z.value;
   console.log(this.filterDate)
+  this.loader1=true;
   this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":"7993614041","otp":"123456"}).subscribe(data2 => {
      
   console.log(data2);
- 
+ this.loader1=false;
 this.e=0
  for(this.i=0;this.i<(this.arraysize);this.i++){
   if(data2['response']['data'][this.i]['date']==this.filterDate){
@@ -141,7 +145,7 @@ this.e=0
 })
 }
 }
-confirmdiv(l,m,n,o){
+confirmdiv(l,m,n,o,i){
   
   this.p=document.getElementById("myModal")
   this.p.style.display="block";
@@ -152,6 +156,7 @@ this.usertime=o;
 this.confirm=true;
 this.decline=false;
 this.comment=false;
+this.id=i;
 }
 closeconfirm(){
   this.p=document.getElementById("myModal")
@@ -161,7 +166,7 @@ closedecline(){
   this.p1=document.getElementById("myModal1")
   this.p1.style.display="none";
 }
-declinediv(l,m,n,o){
+declinediv(l,m,n,o,i){
   console.log("ullll")
   this.p1=document.getElementById("myModal1")
   this.p1.style.display="block";
@@ -169,13 +174,13 @@ this.username=l;
 this.nop=m;
 this.userdate=n;
 this.usertime=o;
-
+this.id=i;
 }
 closecomment(){
   this.p1=document.getElementById("myModal2")
   this.p1.style.display="none";
 }
-commentdiv(l,m,n,o){
+commentdiv(l,m,n,o,i){
   console.log("ullll")
   this.p1=document.getElementById("myModal2")
   this.p1.style.display="block";
@@ -183,6 +188,74 @@ this.username=l;
 this.nop=m;
 this.userdate=n;
 this.usertime=o;
+this.id=i;
+}
+submitconfirm(aa,bb){
+  this.ele=document.querySelector(".msg");
+this.p1=document.getElementById("myModal")
+this.p1.style.display="none";
+  this.http.patch("http://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":1}).subscribe(data3 => {
+    this.alertmsg=data3['msg'];  
+    this.ele.style.display="block";
+    setTimeout(this.alertfunc, 2000);
+    this.ngOnInit();
+  },error=>{
+    
+    this.alertmsg=error['error']['msg']; 
+    this.ele.style.display="block";
+    setTimeout(this.alertfunc, 2000);
+    console.log("error")
+    this.ngOnInit();
+  })
+}
+submitdecline(aa,bb){
+  this.ele=document.querySelector(".msg");
+this.p1=document.getElementById("myModal1")
+this.p1.style.display="none";
+  this.http.patch("http://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":0}).subscribe(data3 => {
+    this.alertmsg=data3['msg'];  
+    this.ele.style.display="block";
+      
+      
+      setTimeout(this.alertfunc, 2000);
+      this.ngOnInit();
+    
+  },error=>{
+    this.alertmsg=error['error']['msg']; 
+    this.ele.style.display="block";
+    
+    
+    setTimeout(this.alertfunc, 2000);
+    console.log("error")
+    this.ngOnInit();
+  
+  
 
+  
+  
+  })
+}
+alertfunc(){
+  this.ele=document.querySelector(".msg");
+  this.ele.style.display="none";
+  
+}
+submitcomment(aa,bb){
+this.ele=document.querySelector(".msg");
+this.p1=document.getElementById("myModal2")
+this.p1.style.display="none";
+
+  this.http.patch("http://api.diskoveroo.simplifii.xyz/api/v1/booking/comment",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb)}).subscribe(data3 => {
+  this.alertmsg=data3['msg'];  
+  this.ele.style.display="block";
+  setTimeout(this.alertfunc, 2000);
+    
+  },error=>{
+    this.alertmsg=error['error']['msg']; 
+    this.ele.style.display="block";
+    
+    
+    setTimeout(this.alertfunc, 2000);
+  })
 }
 }

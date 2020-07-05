@@ -55,26 +55,29 @@
  
         </div>
         </div>
-        <div *ngIf="!this.filter && !(this.e==0)">
+        <div class="msg">
+          <h2 id="msgtxt">{{this.alertmsg}}</h2>
+        </div>
+        <div *ngIf="!this.filter && !(this.e==0) && !this.loader1">
         <div class="infodiv" *ngFor="let info of this.z">
             <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
             <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
             <h2 id="s3">{{info['date']}}</h2>
             <h2 id="s4">{{info['time']}}</h2>
-            <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-checked-100.png" id="s5">
-            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
-            <img  (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+            <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-checked-100.png" id="s5">
+            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
+            <img  (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-topic-100.png" id="s7">
         </div>
         </div>
         <div  *ngFor="let info of this.z">
-            <div class="infodiv" *ngIf="info['date']==this.filterDate && this.filter && !(this.e==0)">
+            <div class="infodiv" *ngIf="info['date']==this.filterDate && this.filter && !(this.e==0) && !this.loader1">
                 <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
                 <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
                 <h2 id="s3">{{info['date']}}</h2>
                 <h2 id="s4">{{info['time']}}</h2>
-                <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-checked-100.png" id="s5">
-            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
-            <img (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+                <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-checked-100.png" id="s5">
+            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
+            <img (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-topic-100.png" id="s7">
             </div>
         </div>
         
@@ -93,11 +96,11 @@
         <h2 id="p1">Time: {{this.usertime}}</h2>
         <form >
             
-            <input type="text" id="fname" name="fname" placeholder="write your comments here *(optional)"><br><br>
+            <input type="text" id="fname" ngModel name="fname" #fname="ngModel" placeholder="write your comments here *(optional)"><br><br>
             
           </form>
           <button  (click)="closeconfirm()" class=" square_btn5 btn ">Cancel</button>
-          <button   class=" square_btn6 btn ">Submit</button>
+          <button  (click)="submitconfirm(this.id,fname.value)" class=" square_btn6 btn ">Submit</button>
   </div>
 
 </div>
@@ -115,11 +118,11 @@
     
   <form >
     
-    <input type="text" id="fname" name="fname" placeholder="write your comments here *(optional)"><br><br>
+    <input type="text" id="fname1" ngModel name="fname1" #fname1="ngModel" placeholder="write your comments here *(optional)"><br><br>
     
   </form>
   <button  (click)="closedecline()" class=" square_btn5 btn ">Cancel</button>
-  <button   class=" square_btn6 btn ">Submit</button>
+  <button  (click)="submitdecline(this.id,fname1.value)" class=" square_btn6 btn ">Submit</button>
   </div>
 </div>
 <div id="myModal2" class="modal2">
@@ -136,15 +139,15 @@
     
   <form >
     
-    <input type="text" id="fname" name="fname" placeholder="write your comments here "><br><br>
+    <input type="text" id="fname2" ngModel name="fname2" #fname2="ngModel" placeholder="write your comments here "><br><br>
     
   </form>
   <button  (click)="closecomment()" class=" square_btn5 btn ">Cancel</button>
-  <button   class=" square_btn6 btn ">Submit</button>
+  <button  (click)="submitcomment(this.id,fname2.value)" class=" square_btn6 btn ">Submit</button>
   </div>
 </div>
 
-        <div class="infodiv1" *ngIf="this.e==0">
+        <div class="infodiv1" *ngIf="this.e==0 && !this.loader1">
             <img src="../../assets/images/bookings.png">
             <h2 id="txt9">There is nothing in here</h2>
          </div>
@@ -171,15 +174,18 @@
            <img src="../../assets/images/bookings.png">
            <h2 id="txt9">There is nothing in here</h2>
         </div>
+        <div class="msg">
+          <h2 id="msgtxt">{{this.alertmsg}}</h2>
+        </div>
         <div  *ngFor="let info of this.z">
             <div class="infodiv" *ngIf="info['date']==this.myDate">
             <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
             <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
             <h2 id="s3">{{info['date']}}</h2>
             <h2 id="s4">{{info['time']}}</h2>
-            <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-checked-100.png" id="s5">
-            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
-            <img (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+            <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-checked-100.png" id="s5">
+            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
+            <img (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-topic-100.png" id="s7">
         </div>
 
         </div>
@@ -197,11 +203,11 @@
             
           <form >
             
-            <input type="text" id="fname" name="fname" placeholder="write your comments here *(optional)"><br><br>
+            <input type="text" id="fname" ngModel name="fname" #fname="ngModel" placeholder="write your comments here *(optional)"><br><br>
             
           </form>
           <button  (click)="closeconfirm()" class=" square_btn5 btn ">Cancel</button>
-          <button   class=" square_btn6 btn ">Submit</button>
+          <button  (click)="submitconfirm(this.id,fname.value)"class=" square_btn6 btn ">Submit</button>
           </div>
         </div>
           <div id="myModal1" class="modal1">
@@ -218,11 +224,11 @@
             
           <form >
             
-            <input type="text" id="fname" name="fname" placeholder="write your comments here *(optional)"><br><br>
+            <input type="text" id="fname1" ngModel name="fname1" #fname1="ngModel" placeholder="write your comments here *(optional)"><br><br>
             
           </form>
           <button  (click)="closedecline()" class=" square_btn5 btn ">Cancel</button>
-          <button   class=" square_btn6 btn ">Submit</button>
+          <button  (click)="submitdecline(this.id,fname1.value)" class=" square_btn6 btn ">Submit</button>
           </div>
 </div>
 <div id="myModal2" class="modal2">
@@ -239,11 +245,11 @@
     
   <form >
     
-    <input type="text" id="fname" name="fname" placeholder="write your comments here "><br><br>
+    <input type="text" id="fname2" ngModel name="fname2" #fname2="ngModel" placeholder="write your comments here "><br><br>
     
   </form>
   <button  (click)="closecomment()" class=" square_btn5 btn ">Cancel</button>
-  <button   class=" square_btn6 btn ">Submit</button>
+  <button   (click)="submitcomment(this.id,fname2.value)" class=" square_btn6 btn ">Submit</button>
   </div>
 </div>
         <div id="mySidenav" class="sidenav">
