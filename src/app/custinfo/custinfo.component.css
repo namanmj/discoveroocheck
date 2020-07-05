@@ -460,7 +460,7 @@ height:30px;
   }
   .msg{
     display: none; /* Hidden by default */
-    position: absolute; /* Stay in place */
+    position: fixed; /* Stay in place */
     z-index: 1000; /* Sit on top */
      /* Location of the box */
     left:20px;
