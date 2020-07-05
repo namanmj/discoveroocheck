@@ -46,7 +46,7 @@ showalldata=false;
   ngOnInit(): void {
     this.myDateValue = new Date();
     
-   
+   this.c=0;
     
     this.myDate = new Date();
 this.otp=this._sharedService.otp;
@@ -194,7 +194,7 @@ submitconfirm(aa,bb){
   this.ele=document.querySelector(".msg");
 this.p1=document.getElementById("myModal")
 this.p1.style.display="none";
-  this.http.patch("http://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":1}).subscribe(data3 => {
+  this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":1}).subscribe(data3 => {
     this.alertmsg=data3['msg'];  
     this.ele.style.display="block";
     setTimeout(this.alertfunc, 2000);
@@ -212,7 +212,7 @@ submitdecline(aa,bb){
   this.ele=document.querySelector(".msg");
 this.p1=document.getElementById("myModal1")
 this.p1.style.display="none";
-  this.http.patch("http://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":0}).subscribe(data3 => {
+  this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":0}).subscribe(data3 => {
     this.alertmsg=data3['msg'];  
     this.ele.style.display="block";
       
@@ -245,7 +245,7 @@ this.ele=document.querySelector(".msg");
 this.p1=document.getElementById("myModal2")
 this.p1.style.display="none";
 
-  this.http.patch("http://api.diskoveroo.simplifii.xyz/api/v1/booking/comment",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb)}).subscribe(data3 => {
+  this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/comment",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb)}).subscribe(data3 => {
   console.log(data3['msg']);
   this.alertmsg=data3['msg'];  
   
