@@ -245,7 +245,7 @@ height:30px;
     left:10px;
     top:190px;
     width:400px;
-    height:100px;
+    height: auto;
     border: gray thin solid;
     border-color: gray;
   border-radius: 25px;
@@ -313,7 +313,7 @@ height:30px;
     height: 25px;
 }
 #s1{
-    position: absolute;
+    position: relative;
     font-family: "Open Sans";
     font-style: initial;
     font-weight: 600;
@@ -331,73 +331,101 @@ height:30px;
     
 }
 #s2{
-    position: absolute;
+    position: relative;
     font-family: "Open Sans";
     font-style: initial;
     font-weight: 300;
     font-size: 12px;
     line-height: 16px;
-    text-align: center;
-    top:45px;
-    left:30px;
+    text-align: left;
+    top:10px;
+    left:20px;
     color: black;
    
     width:100px;
 }
+#s8{
+    position: relative;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+    top:10px;
+    left:20px;
+    color: black;
+   
+    width:200px;
+}
+#s9{
+    position: relative;
+    font-family: "Open Sans";
+    font-style: initial;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+    top:10px;
+    left:20px;
+    color: black;
+   
+    width:200px;
+}
 #s3{
-    position: absolute;
+    position: relative;
     font-family: "Open Sans";
     font-style: initial;
     font-weight: 300;
     font-size: 12px;
     line-height: 16px;
     text-align: center;
-    top:50px;
-    left:250px;
+    top:20px;
+    left:20px;
     color:gray;
    
     width:100px;
 }
 #s4{
-    position: absolute;
+    position: relative;
     font-family: "Open Sans";
     font-style: initial;
     font-weight: 300;
     font-size: 12px;
     line-height: 16px;
     text-align: center;
-    top:70px;
+    
     left:250px;
     color: gray;
-   
+   top:-6px;
     width:100px;
 }
 #s5{
     position: absolute;
    
-    top:65px;
-    left:20px;
     
-   
+    left:290px;
+    
+   top:30px;
     width:25px;
     height:25px;
 }
 #s6{
     position: absolute;
    
-    top:65px;
-    left:60px;
-    
    
-    widows: 25px;
+    left:320px;
+    top:30px;
+   
+    width: 25px;
     height:25px;
 }
 
 #s7{
     position: absolute;
-   
-    top:65px;
-    left:100px;
+    top:30px;
+    
+    left:350px;
     
    
     width:25px;
@@ -443,7 +471,7 @@ height:30px;
     .sidenav a {font-size: 18px;}
   }
   .loader {
-      position: relative;
+      position: fixed;
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #ffbe00; 
     border-radius: 50%;
@@ -452,6 +480,7 @@ height:30px;
     top:250px;
     left:180px;
     animation: spin 1s linear infinite;
+    z-index: 10000;
   }
   
   @keyframes spin {

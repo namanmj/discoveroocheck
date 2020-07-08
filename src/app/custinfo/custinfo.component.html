@@ -62,22 +62,35 @@
         <div class="infodiv" *ngFor="let info of this.z">
             <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
             <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
-            <h2 id="s3">{{info['date']}}</h2>
-            <h2 id="s4">{{info['time']}}</h2>
             <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-checked-100.png" id="s5">
             <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
-            <img  (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+            <img *ngIf="(info['comment']==null)"(click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+            <h2 *ngIf="(info['approved']==1)" id="s8">Confirmed on:{{info['confirmed_on']}}</h2>
+            <h2 *ngIf="(info['approved']==0)" id="s8">Declined on:{{info['confirmed_on']}}</h2>
+            <h2 *ngIf="!(info['comment']==null)" id="s9">Comment:{{info['comment']}}</h2>
+           
+            
+            
+            <h2 id="s3">{{info['date']}}</h2>
+            <h2 id="s4">{{info['time']}}</h2>
+           
         </div>
         </div>
         <div  *ngFor="let info of this.z">
             <div class="infodiv" *ngIf="info['date']==this.filterDate && this.filter && !(this.e==0) && !this.loader1">
-                <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
-                <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
-                <h2 id="s3">{{info['date']}}</h2>
-                <h2 id="s4">{{info['time']}}</h2>
-                <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-checked-100.png" id="s5">
-            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
-            <img (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+              <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
+              <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
+              <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-checked-100.png" id="s5">
+              <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
+              <img *ngIf="(info['comment']==null)"(click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+              <h2 *ngIf="(info['approved']==1)" id="s8">Confirmed on:{{info['confirmed_on']}}</h2>
+              <h2 *ngIf="(info['approved']==0)" id="s8">Declined on:{{info['confirmed_on']}}</h2>
+              <h2 *ngIf="!(info['comment']==null)" id="s9">Comment:{{info['comment']}}</h2>
+             
+              
+              
+              <h2 id="s3">{{info['date']}}</h2>
+              <h2 id="s4">{{info['time']}}</h2>
             </div>
         </div>
         
@@ -147,7 +160,7 @@
   </div>
 </div>
 
-        <div class="infodiv1" *ngIf="this.e==0 && !this.loader1">
+        <div class="infodiv1" *ngIf="this.e==0 && !this.loader1 ">
             <img src="../../assets/images/bookings.png">
             <h2 id="txt9">There is nothing in here</h2>
          </div>
@@ -170,7 +183,7 @@
         <h2 id="text6">All</h2>
         <h2 id="text7">Customer List</h2>
         </div>
-        <div class="infodiv1" *ngIf="this.c==0">
+        <div class="infodiv1" *ngIf="this.c==0 && !(this.alert)">
            <img src="../../assets/images/bookings.png">
            <h2 id="txt9">There is nothing in here</h2>
         </div>
@@ -179,13 +192,19 @@
         </div>
         <div  *ngFor="let info of this.z">
             <div class="infodiv" *ngIf="info['date']==this.myDate">
-            <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
-            <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
-            <h2 id="s3">{{info['date']}}</h2>
-            <h2 id="s4">{{info['time']}}</h2>
-            <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-checked-100.png" id="s5">
-            <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
-            <img (click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+              <h2 id="s1">Customer Name:{{info['user']['name']}}</h2>
+              <h2 id="s2">No. of People:{{info['no_of_people']}}</h2>
+              <img *ngIf="info['approved']==null" (click)="confirmdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-checked-100.png" id="s5">
+              <img *ngIf="info['approved']==null"  (click)="declinediv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-multiply-52.png" id="s6">
+              <img *ngIf="(info['comment']==null)"(click)="commentdiv(info['user']['name'],info['no_of_people'],info['date'],info['time'],info['id'])" src="../../assets/images/icons8-topic-100.png" id="s7">
+              <h2 *ngIf="(info['approved']==1)" id="s8">Confirmed on:{{info['confirmed_on']}}</h2>
+              <h2 *ngIf="(info['approved']==0)" id="s8">Declined on:{{info['confirmed_on']}}</h2>
+              <h2 *ngIf="!(info['comment']==null)" id="s9">Comment:{{info['comment']}}</h2>
+             
+              
+              
+              <h2 id="s3">{{info['date']}}</h2>
+              <h2 id="s4">{{info['time']}}</h2>
         </div>
 
         </div>

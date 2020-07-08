@@ -38,6 +38,7 @@ i;
 c:number =0;
 e:number =1;
 d;
+alert=false;
 username;nop;userdate;usertime;
 myDateValue: Date; 
 loader1=true;
@@ -194,13 +195,17 @@ submitconfirm(aa,bb){
   this.ele=document.querySelector(".msg");
 this.p1=document.getElementById("myModal")
 this.p1.style.display="none";
+this.loader1=true;
   this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":1}).subscribe(data3 => {
     this.alertmsg=data3['msg'];  
     this.ele.style.display="block";
+    this.loader1=false;
     setTimeout(this.alertfunc, 2000);
+    
+    this.alert=true;
     this.ngOnInit();
   },error=>{
-    
+    this.alert=true;
     this.alertmsg=error['error']['msg']; 
     this.ele.style.display="block";
     setTimeout(this.alertfunc, 2000);
@@ -212,12 +217,14 @@ submitdecline(aa,bb){
   this.ele=document.querySelector(".msg");
 this.p1=document.getElementById("myModal1")
 this.p1.style.display="none";
+this.loader1=true;
   this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":0}).subscribe(data3 => {
     this.alertmsg=data3['msg'];  
     this.ele.style.display="block";
-      
+    this.loader1=false;
       
       setTimeout(this.alertfunc, 2000);
+      this.alert=true;
       this.ngOnInit();
     
   },error=>{
@@ -227,6 +234,7 @@ this.p1.style.display="none";
     
     setTimeout(this.alertfunc, 2000);
     console.log("error")
+    this.alert=true;
     this.ngOnInit();
   
   
@@ -244,20 +252,23 @@ submitcomment(aa,bb){
 this.ele=document.querySelector(".msg");
 this.p1=document.getElementById("myModal2")
 this.p1.style.display="none";
-
+this.loader1=true;
   this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/comment",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb)}).subscribe(data3 => {
   console.log(data3['msg']);
   this.alertmsg=data3['msg'];  
-  
+  this.loader1=false;
   this.ele.style.display="block";
   setTimeout(this.alertfunc, 2000);
-    
+  this.alert=true;
+  this.ngOnInit();
   },error=>{
     this.alertmsg=error['error']['msg']; 
     this.ele.style.display="block";
     
     
     setTimeout(this.alertfunc, 2000);
+    this.alert=true;
+    this.ngOnInit();
   })
 }
 }
