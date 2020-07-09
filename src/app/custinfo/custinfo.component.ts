@@ -56,7 +56,7 @@ this.numbercpy=this.number;
 this.otpcpy=this.otp;
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
 console.log(this.myDate);
-    this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":"7993614041","otp":"123456"}).subscribe(data1 => {
+    this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":this.number,"otp":this.otp}).subscribe(data1 => {
       this.loader1=false;
   console.log(data1);
  
@@ -125,7 +125,7 @@ else{
   this.filterDate=z.value;
   console.log(this.filterDate)
   this.loader1=true;
-  this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":"7993614041","otp":"123456"}).subscribe(data2 => {
+  this.http.post("https://api.diskoveroo.simplifii.xyz/api/v1/restaurant/verify",{"mobile":this.number,"otp":this.otp}).subscribe(data2 => {
      
   console.log(data2);
  this.loader1=false;
@@ -196,7 +196,7 @@ submitconfirm(aa,bb){
 this.p1=document.getElementById("myModal")
 this.p1.style.display="none";
 this.loader1=true;
-  this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":1}).subscribe(data3 => {
+  this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":this.number,"otp":this.otp,"booking_id":aa,"comment":String(bb),"approved":1}).subscribe(data3 => {
     this.alertmsg=data3['msg'];  
     this.ele.style.display="block";
     this.loader1=false;
@@ -218,7 +218,7 @@ submitdecline(aa,bb){
 this.p1=document.getElementById("myModal1")
 this.p1.style.display="none";
 this.loader1=true;
-  this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb),"approved":0}).subscribe(data3 => {
+  this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/approval_status",{"mobile":this.number,"otp":this.otp,"booking_id":aa,"comment":String(bb),"approved":0}).subscribe(data3 => {
     this.alertmsg=data3['msg'];  
     this.ele.style.display="block";
     this.loader1=false;
@@ -253,7 +253,7 @@ this.ele=document.querySelector(".msg");
 this.p1=document.getElementById("myModal2")
 this.p1.style.display="none";
 this.loader1=true;
-  this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/comment",{"mobile":"7993614041","otp":"123456","booking_id":aa,"comment":String(bb)}).subscribe(data3 => {
+  this.http.patch("https://api.diskoveroo.simplifii.xyz/api/v1/booking/comment",{"mobile":this.number,"otp":this.otp,"booking_id":aa,"comment":String(bb)}).subscribe(data3 => {
   console.log(data3['msg']);
   this.alertmsg=data3['msg'];  
   this.loader1=false;
